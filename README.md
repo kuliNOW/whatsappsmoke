@@ -3,7 +3,6 @@ Project Ijun bot whatsapp dan alarm untuk deteksi suhu dan potensi kebakaran
 
 Database:
 - Firebase (Untuk menampung nilai dari sensor)
-- SQLite (Untuk menampung history chat yang masuk ke whatsapp bot)
 
 Sparepart:
 - Smoke detector
@@ -13,31 +12,41 @@ Sparepart:
 - Buzzer
 
 Penggunaan:
-```
-cp .env.example .env
-```
-
-```
-npm i firebase-admin --save
-
-```
 
 ```
 npm install
 ```
 
+```
+cp .env.example .env
+```
+
+Contoh penggunaan env
+```
+PORT=9999
+NUMBER=+628123456789
+AUTHDOMAIN=example.firebaseapp.com
+DATABASEURL=https://example.firebaseio.com
+WARNING_MESSAGE=Kebakaran terdeteksi, segera lakukan tindakan pencegahan!
+```
 
 ```
-npm run dev
+npm start
 ```
+
+Paste private key firebase ke data/secret.json
+
+Scan QR
+
+Tunggu hingga muncul client
 
 Contoh output serial monitor
 ```
 Data berhasil diperbaharui
 Asap: 0.00
-Kelembapan: 18.80%
-Suhu: 1.50°C
+Kelembapan: 17.50%
+Suhu: 2.00°C
 Kondisi hari ini: Cuaca dingin dan kering, jaga kelembapan kulit.
 Status: aman
-Diupdate: Minggu 05:58:18
+Diupdate: 3:37:10 Jum'at Juli 26, 2024
 ```

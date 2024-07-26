@@ -4,6 +4,7 @@
 #include <FirebaseESP8266.h>
 #include "addons/TokenHelper.h"
 #include "addons/RTDBHelper.h"
+#include <TimeLib.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
@@ -24,12 +25,14 @@
 #define HMAX 60
 #define TMIN 18
 #define TMAX 60
+#define DURR 60000
+#define SEC 0
 
-String date;
-String uid;
-String cond;
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, POOL, SEC, DURR); 
+
+String date, uid, cond;
 const char *status;
-const long utcOffsetinscond = 3600;
 const char *condition[] = {
   "Cuaca dingin dan kering, jaga kelembapan kulit.",
   "Cuaca dingin, pastikan tetap hangat.",
@@ -43,23 +46,11 @@ const char *condition[] = {
   "Kondisi tidak terdeteksi."
 };
 
-char dayoftheweek[7][12] = {
-  "Minggu",
-  "Senin",
-  "Selasa",
-  "Rabu",
-  "Kamis",
-  "Jum'at",
-  "Sabtu"
-};
-
 FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig config;
 WiFiClient client;
-WiFiUDP ntpUDP;
 DHT dht(DHT_PIN, DHT_TYPE);
-NTPClient timeClient(ntpUDP, POOL, utcOffsetinscond);
 
 // Untuk SMODE atau sound bisa disesuaikan sendiri, sesuai pilihan dibawah ini
 // NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4
@@ -77,7 +68,6 @@ void wifiSetup() {
 }
 
 void setupFirebase() {
-  timeClient.begin();
   auth.user.email = FIREBASE_EMAIL;
   auth.user.password = FIREBASE_PASS;
   config.api_key = FIREBASE_API_KEY;
@@ -105,6 +95,8 @@ void setup() {
   wifiSetup();
   setupFirebase();
   dht.begin();
+  timeClient.begin();
+  timeClient.setTimeOffset(25200); 
 }
 
 String humidity(float h) {
@@ -179,15 +171,67 @@ void output(float ss, float hh, float tt, String c, const char *st, String dt) {
   Serial.println();
 }
 
+String printDigits(int digits) {
+  String dig = ":";
+  if (digits < 10) dig += '0';
+  dig += String(digits);
+  return dig;
+}
+
+String dayIndo(int day) {
+  switch(day) {
+    case 1: return "Minggu";
+    case 2: return "Senin";
+    case 3: return "Selasa";
+    case 4: return "Rabu";
+    case 5: return "Kamis";
+    case 6: return "Jum'at";
+    case 7: return "Sabtu";
+    default: return "";
+  }
+}
+
+String monthIndo(int month) {
+  switch(month) {
+    case 1: return "Januari";
+    case 2: return "Februari";
+    case 3: return "Maret";
+    case 4: return "April";
+    case 5: return "Mei";
+    case 6: return "Juni";
+    case 7: return "Juli";
+    case 8: return "Agustus";
+    case 9: return "September";
+    case 10: return "Oktober";
+    case 11: return "November";
+    case 12: return "Desember";
+    default: return "";
+  }
+}
+
+String dateNOW() {
+  date = String(hour(), DEC);
+  date += printDigits(minute());
+  date += printDigits(second());
+  date += " ";
+  date += dayIndo(weekday());
+  date += " ";
+  date += String(day(), DEC);
+  date += " ";
+  date += monthIndo(month());
+  date += " ";
+  date += String(year(), DEC);
+  return date;
+}
+
 void loop() {
+  timeClient.update();
+  setTime(timeClient.getEpochTime());
   float sp = analogRead(SMOKE_PIN);
   float hmdty = dht.readHumidity();
   float temp = dht.readTemperature();
-  timeClient.update();
   cond = kondisi(temperature(temp), humidity(hmdty));
-  date = dayoftheweek[timeClient.getDay()];
-  date += " ";
-  date += timeClient.getFormattedTime();
+  dateNOW();
 
   if (isnan(sp) || isnan(hmdty) || isnan(temp)) {
     Serial.println("Gagal membaca data dari sensor");

@@ -1,24 +1,25 @@
 {
-  "name": "starter-project",
+  "name": "WA BOT",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "Wa Bot",
+  "main": "app/app.js",
   "dependencies": {
-    "dotenv": "^16.3.1",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
     "firebase-admin": "^12.2.0",
-    "nodemon": "^3.0.1",
-    "pepesan": "github:mqad21/pepesan",
-    "string-template": "^1.0.0"
+    "nodemon": "^2.0.2",
+    "punycode": "^2.3.1",
+    "puppeteer-core": "^22.14.0",
+    "qrcode-terminal": "^0.12.0",
+    "string-template": "^1.0.0",
+    "whatsapp-web.js": "^1.23.0"
   },
-  "nodemonConfig": {
-    "ignore": [
-      "session/*"
-    ]
+  "scripts": {
+    "start": "node .",
+    "bot": "node model/autobot.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
