@@ -28,6 +28,8 @@ NUMBER=+628123456789
 AUTHDOMAIN=example.firebaseapp.com
 DATABASEURL=https://example.firebaseio.com
 WARNING_MESSAGE=Kebakaran terdeteksi, segera lakukan tindakan pencegahan!
+ENV1=modeDEV
+ENV2=modeBOT
 ```
 
 ```
