@@ -34,7 +34,7 @@ WARNING_MESSAGE=Kebakaran terdeteksi, segera lakukan tindakan pencegahan!
 npm start
 ```
 
-Paste private key firebase ke data/secret.json
+Paste private key firebase ke key/secret.json
 
 Scan QR
 
