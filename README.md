@@ -58,8 +58,11 @@ Untuk mode chat
 ```
 npm run mode-chat
 ```
+![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20chat.jpg)
+
 
 Untuk mode monitoring
 ```
 npm run mode-mon
 ```
+![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20mon.jpg)
