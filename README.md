@@ -67,5 +67,7 @@ npm run mode-mon
 ```
 ![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20mon.jpg)
 
+
 Skematik alat
+
 ![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/Skematik.PNG)
