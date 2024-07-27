@@ -1,7 +1,7 @@
 # wasmoke
 Project Ijun bot whatsapp dan alarm untuk deteksi suhu dan potensi kebakaran
 
-Database:
+Realtime Database:
 - Firebase (Untuk menampung nilai dari sensor)
 
 Sparepart:
@@ -23,13 +23,14 @@ cp .env.example .env
 
 Contoh penggunaan env
 ```
-PORT=9999
-NUMBER=+628123456789
-AUTHDOMAIN=example.firebaseapp.com
-DATABASEURL=https://example.firebaseio.com
+PORT_DEV=8000
+PORT_BOT=9000
+NUMBER=6289123456789
+AUTHDOMAIN=xxxxxxx-xxxxx.firebaseapp.com
+DATABASEURL=https://xxxxxxxxxxx-default-rtdb.firebaseio.com
 WARNING_MESSAGE=Kebakaran terdeteksi, segera lakukan tindakan pencegahan!
-ENV1=modeDEV
-ENV2=modeBOT
+ENV_DEV=devMode
+ENV_BOT=botMode
 ```
 
 ```

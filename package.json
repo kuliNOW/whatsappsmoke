@@ -16,8 +16,8 @@
     "whatsapp-web.js": "^1.23.0"
   },
   "scripts": {
-    "start": "node .",
-    "bot": "node model/autobot.js"
+    "mode-chat": "node .",
+    "mode-mon": "node app/autobot.js"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

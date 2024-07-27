@@ -1,4 +1,4 @@
-const { client, handleMsg } = require("../model/pesan");
+const { client, handleMsg } = require("../app/pesan");
 
 client.on("qr", (qr) => {
   require("../view/qrCode").showQR(qr);
