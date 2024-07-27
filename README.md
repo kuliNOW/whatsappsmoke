@@ -41,7 +41,7 @@ Paste private key firebase ke key/secret.json
 
 Scan QR
 
-Tunggu hingga muncul client
+Tunggu hingga Otentikasi berhasil dan Siap digunakan
 
 Contoh output serial monitor
 ```
@@ -52,4 +52,14 @@ Suhu: 2.00°C
 Kondisi hari ini: Cuaca dingin dan kering, jaga kelembapan kulit.
 Status: aman
 Diupdate: 3:37:10 Jum'at Juli 26 2024
+```
+
+Untuk mode chat
+```
+npm run mode-chat
+```
+
+Untuk mode monitoring
+```
+npm run mode-mon
 ```
