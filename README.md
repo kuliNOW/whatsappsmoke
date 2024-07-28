@@ -1,4 +1,3 @@
-ya# wasmoke
 Project Ijun bot whatsapp dan alarm untuk deteksi suhu dan potensi kebakaran
 
 Realtime Database:
