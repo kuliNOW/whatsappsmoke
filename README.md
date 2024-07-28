@@ -1,4 +1,4 @@
-# wasmoke
+ya# wasmoke
 Project Ijun bot whatsapp dan alarm untuk deteksi suhu dan potensi kebakaran
 
 Realtime Database:
@@ -31,10 +31,6 @@ DATABASEURL=https://xxxxxxxxxxx-default-rtdb.firebaseio.com
 WARNING_MESSAGE=Kebakaran terdeteksi, segera lakukan tindakan pencegahan!
 ENV_DEV=devMode
 ENV_BOT=botMode
-```
-
-```
-npm start
 ```
 
 Paste private key firebase ke key/secret.json
