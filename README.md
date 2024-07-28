@@ -1,4 +1,3 @@
-# wasmoke
 Project Ijun bot whatsapp dan alarm untuk deteksi suhu dan potensi kebakaran
 
 Realtime Database:
@@ -33,10 +32,6 @@ ENV_DEV=devMode
 ENV_BOT=botMode
 ```
 
-```
-npm start
-```
-
 Paste private key firebase ke key/secret.json
 
 Scan QR
@@ -66,3 +61,8 @@ Untuk mode monitoring
 npm run mode-mon
 ```
 ![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20mon.jpg)
+
+
+Skematik alat
+
+![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/Skematik.PNG)
