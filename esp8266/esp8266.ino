@@ -49,7 +49,6 @@ const char *condition[] = {
 FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig config;
-WiFiClient client;
 DHT dht(DHT_PIN, DHT_TYPE);
 
 // Untuk SMODE atau sound bisa disesuaikan sendiri, sesuai pilihan dibawah ini
