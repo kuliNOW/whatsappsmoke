@@ -34,10 +34,6 @@ ENV_BOT=botMode
 
 Paste private key firebase ke config/secret.json
 
-Scan QR
-
-Tunggu hingga Otentikasi berhasil dan Siap digunakan
-
 Contoh output serial monitor
 ```
 Data berhasil diperbaharui
@@ -53,6 +49,10 @@ Untuk mode chat
 ```
 npm run mode-chat
 ```
+Scan QR
+
+Tunggu hingga Otentikasi berhasil dan Siap digunakan
+
 ![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20chat.jpg)
 
 
@@ -60,8 +60,13 @@ Untuk mode monitoring
 ```
 npm run mode-mon
 ```
+Scan QR
+
+Tunggu hingga Otentikasi berhasil dan Siap digunakan
+
 ![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20mon.jpg)
 
+nb: Apabila session folder session maka tidak perlu scan QRCode lagi
 
 Skematik alat
 
