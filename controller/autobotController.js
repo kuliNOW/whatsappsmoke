@@ -22,8 +22,6 @@ client.on("ready", logEvent("Siap digunakan"));
 client.on("disconnected", handleDisconnection);
 
 module.exports = {
-  startBot: () => {
-    client.initialize();
-    initializeClient();
-  }
+  startBot: () => client.initialize(),
+  initializeClient
 };
