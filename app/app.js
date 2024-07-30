@@ -1,7 +1,6 @@
 require("../model/envConfig");
 const express = require("express");
-const corss = require("../middleware/cors");
-const { run } = require("../controller/BotController");
+const { run } = require("../controller/chatbotController");
 const events = require("events");
 const app = express();
 const { PORT_DEV, ENV_DEV } = process.env;
@@ -12,7 +11,6 @@ let port = process.env.PORT;
 events.EventEmitter.defaultMaxListeners = 20;
 
 run();
-app.use(corss);
 
 app.listen(port, () => {
   console.log(`Server berjalan pada:\n- Environment: ${env}\n- Port: ${port}`);

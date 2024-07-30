@@ -1,4 +1,4 @@
-const { client, handleMsg } = require("../app/pesan");
+const { client, handleMsg } = require("../services/pesan");
 const {
   logEvent,
   handleAuthFailure,
