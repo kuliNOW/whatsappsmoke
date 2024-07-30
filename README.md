@@ -32,7 +32,7 @@ ENV_DEV=devMode
 ENV_BOT=botMode
 ```
 
-Paste private key firebase ke key/secret.json
+Paste private key firebase ke config/secret.json
 
 Scan QR
 
