@@ -6,11 +6,11 @@ const envFile = '.env';
 const scanResult = scanEnv();
 const envPath = path.resolve(__dirname, '..', envFile);
 if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
   if (!scanResult) {
     console.error("Mohon isi environment variable dengan benar");
     process.exit(1);
   }
-  dotenv.config({ path: envPath });
 } else {
   console.error(`File ${envFile} tidak ditemukan!`);
   process.exit(1);
