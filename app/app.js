@@ -1,4 +1,4 @@
-require("../model/envConfig");
+require("../config/envConfig");
 const express = require("express");
 const { run } = require("../controller/chatbotController");
 const events = require("events");

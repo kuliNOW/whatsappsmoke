@@ -1,8 +1,7 @@
 const { Client, LocalAuth } = require("whatsapp-web.js");
-const db = require("../model/data");
-const path = require("path");
-const sessDir = "config/session";
-const sessionCfg = path.resolve(__dirname, '..', sessDir);
+const { defsessionChecker, deldefsessionChecker } = require("./session")
+const db = require("../model/dataModel");
+const sessionCfg = defsessionChecker();
 
 const client = new Client({
   authStrategy: new LocalAuth({
@@ -66,6 +65,16 @@ const handleMsg = async (message) => {
       }
       break;
     }
+    case "shutdown": {
+      try {
+        reply = "Bot dimatikan";
+        process.exit(1);
+      } catch (error) {
+        reply = "Terjadi kesalahan saat mematikan bot.";
+      }
+      deldefsessionChecker();
+      break;      
+    }
     default:
       const bantuan = `
 Silahkan gunakan perintah berikut:
@@ -75,12 +84,14 @@ Silahkan gunakan perintah berikut:
 - cek_status - cek status terbaru
 - cek_kondisi - cek kondisi terbaru
 - cek_lastupdate - cek update jam dan tanggal terbaru
+- shutdown - mematikan bot
         `;
       reply = bantuan;
       break;
   }
   message.reply(reply);
-  console.log("Mengirim pesan ke", message.from);
+  const number = message.from;
+  console.log("Mengirim pesan ke +" + number.replace(/@.*\.us$/, ''));
 };
 
 module.exports = { client, handleMsg };

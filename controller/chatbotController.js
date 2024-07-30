@@ -1,12 +1,16 @@
 const { client, handleMsg } = require("../services/pesan");
 const {
   logEvent,
+  qrnotif,
   handleAuthFailure,
-  handleDisconnection,
+  handleDisconnection
 } = require("../middleware/logger");
 
+const { showQR } = require('../view/qrCode');
+
 client.on("qr", (qr) => {
-  qrCode.showQR(qr);
+  qrnotif();
+  showQR(qr);
 });
 
 client.on("authenticated", logEvent("Otentikasi berhasil"));
@@ -22,5 +26,5 @@ client.on("message", (message) => {
 client.on("disconnected", handleDisconnection);
 
 module.exports = {
-  run: () => client.initialize(),
+  run: () => client.initialize()
 };

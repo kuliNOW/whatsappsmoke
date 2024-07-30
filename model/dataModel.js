@@ -1,8 +1,8 @@
-const { fireEnv } = require('../config/envConfig');
+const { fireEnv } = require('../config/firebaseConfig');
 let db = fireEnv.database();
 let userRef = db.ref("data");
 
-const data = {
+const data = { 
   getAll() {
     return new Promise((resolve, reject) => {
       userRef.once("value", function (snap) {
