@@ -1,7 +1,7 @@
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const db = require("../model/data");
 const path = require("path");
-const sessionCfg = path.join(__dirname, "session");
+const sessionCfg = path.join(__dirname, "..", "config/session");
 
 const client = new Client({
   authStrategy: new LocalAuth({

@@ -1,14 +1,14 @@
-require("./envConfig");
+require("../config/envConfig");
 const { DATABASEURL, AUTHDOMAIN, ENV_DEV, ENV_BOT } = process.env;
 const firebaseAdmin = require("firebase-admin");
-let key = require("../key/secret.json");
+let ServiceAccount = require("../config/secret.json");
 
 const initFirebase = (env) => {
   const appEnv = env === ENV_DEV ? ENV_BOT : ENV_DEV;
   if (appEnv === ENV_DEV) {
     return firebaseAdmin.initializeApp(
       {
-        credential: firebaseAdmin.credential.cert(key),
+        credential: firebaseAdmin.credential.cert(ServiceAccount),
         databaseURL: DATABASEURL,
         authDomain: AUTHDOMAIN,
       },
@@ -17,7 +17,7 @@ const initFirebase = (env) => {
   } else {
     return firebaseAdmin.initializeApp(
       {
-        credential: firebaseAdmin.credential.cert(key),
+        credential: firebaseAdmin.credential.cert(ServiceAccount),
         databaseURL: DATABASEURL,
         authDomain: AUTHDOMAIN,
       },

@@ -1,6 +1,6 @@
 require("../model/envConfig");
 const express = require("express");
-const corss = require("../header/cors");
+const corss = require("../middleware/cors");
 const { run } = require("../controller/BotController");
 const events = require("events");
 const app = express();

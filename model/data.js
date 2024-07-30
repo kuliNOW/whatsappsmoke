@@ -1,4 +1,4 @@
-const { fireEnv } = require('./firebaseConfig');
+const { fireEnv } = require('../config/envConfig');
 let db = fireEnv.database();
 let userRef = db.ref("data");
 
