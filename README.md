@@ -66,7 +66,7 @@ Tunggu hingga Otentikasi berhasil dan Siap digunakan
 
 ![image](https://github.com/kuliNOW/whatsappsmoke/blob/main/mode%20mon.jpg)
 
-nb: Apabila session folder session maka tidak perlu scan QRCode lagi
+nb: Apabila folder session ada maka tidak perlu scan QRCode lagi
 
 Skematik alat
 
